@@ -11,4 +11,10 @@ class Fitacrepe{
         })
         World.add(engine.world,this.tecbond);
     }
+invisible(){
+    World.remove(engine.world,this.tecbond);   
+}
+
+
+
 }
