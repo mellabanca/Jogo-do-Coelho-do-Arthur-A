@@ -20,6 +20,7 @@ var socrates;
 var aristoteles;
 var goku;
 var vegeta;
+var gohan;
 
 function preload(){
   papeldeparede = loadImage("./Imagens/background.png");
@@ -27,12 +28,15 @@ function preload(){
   sansao = loadImage("./Imagens/Rabbit-01.png");
   goku = loadAnimation("./Imagens/blink_1.png","./Imagens/blink_2.png","./Imagens/blink_3.png");
   vegeta = loadAnimation("./Imagens/eat_0.png","./Imagens/eat_1.png","./Imagens/eat_2.png","./Imagens/eat_3.png","./Imagens/eat_4.png");
+  gohan = loadAnimation("./Imagens/sad_1.png","./Imagens/sad_2.png","./Imagens/sad_3.png",)
 
   goku.playing = true;
   vegeta.playing = true;
+  gohan.playing = true;
 
   goku.looping = true;
   vegeta.looping = false;
+  gohan.looping = false;
 }
 
 function setup() 
@@ -58,6 +62,7 @@ function setup()
   socrates.addImage(sansao);
   socrates.addAnimation("piscando", goku);
   socrates.addAnimation("comendo", vegeta);
+  socrates.addAnimation("triste", gohan);
   socrates.changeAnimation("piscando");
   socrates.scale=0.3;
   aristoteles=createImg("./Imagens/cut_btn.png");
@@ -75,7 +80,17 @@ function draw()
   Engine.update(engine);
   piso.tosemideia();
   teiadomiranha.show();
+  if(lemon !== null){
   image(magali,lemon.position.x,lemon.position.y,60,60);
+  }
+
+  if(cell(lemon,socrates) === true){
+    socrates.changeAnimation("comendo");
+  }
+
+  if(lemon !== null && lemon.position.y >= 650){
+    socrates.changeAnimation("triste");
+  }
   drawSprites();
 }
 
@@ -85,4 +100,15 @@ function platao(){
   colabastao=null;
 }
 
-
+function cell(melancia,coelho){
+  if(lemon !== null){
+    var freeza = dist(melancia.position.x, melancia.position.y, coelho.position.x, coelho.position.y);
+    if(freeza <= 80){
+      World.remove(engine.world, lemon);
+      lemon = null;
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
