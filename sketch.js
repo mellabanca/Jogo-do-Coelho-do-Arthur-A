@@ -21,6 +21,11 @@ var aristoteles;
 var goku;
 var vegeta;
 var gohan;
+var mestreKame;
+var kuririn;
+var raditz;
+var bills;
+var majinBoo;
 
 function preload(){
   papeldeparede = loadImage("./Imagens/background.png");
@@ -28,7 +33,12 @@ function preload(){
   sansao = loadImage("./Imagens/Rabbit-01.png");
   goku = loadAnimation("./Imagens/blink_1.png","./Imagens/blink_2.png","./Imagens/blink_3.png");
   vegeta = loadAnimation("./Imagens/eat_0.png","./Imagens/eat_1.png","./Imagens/eat_2.png","./Imagens/eat_3.png","./Imagens/eat_4.png");
-  gohan = loadAnimation("./Imagens/sad_1.png","./Imagens/sad_2.png","./Imagens/sad_3.png",)
+  gohan = loadAnimation("./Imagens/sad_1.png","./Imagens/sad_2.png","./Imagens/sad_3.png",);
+  mestreKame = loadSound("./Sons/sound1.mp3");
+  kuririn = loadSound("./Sons/rope_cut.mp3");
+  raditz = loadSound("./Sons/sad.wav");
+  bills = loadSound("./Sons/eating_sound;mp3");
+  majinBoo = loadSound("./Sons/air.wav");
 
   goku.playing = true;
   vegeta.playing = true;
